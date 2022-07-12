@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const koderShema = new mongoose.Schema({
     name: {
       type: String,
-      minlenth: 3,
+      minlength: 3,
       maxlength: 20,
       required: true,
     },

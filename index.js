@@ -13,6 +13,6 @@ mongoose
     });
   })
   .catch((err) => console.log(`No se pudo conectar a la b.d debido a: ${err}`));
-console.log('confirm processc env', process.env);
+
 
 //mongodb+srv://noemigp19:mongo123@kodemia.infez.mongodb.net/kodemia

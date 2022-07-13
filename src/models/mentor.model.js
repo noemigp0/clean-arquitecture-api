@@ -16,7 +16,17 @@ const MentorSchema = new mongoose.Schema({
     genero: {
         type: String,
         enum: ['f','m', 'o']
-    }
+    }, 
+    generations: {
+        type: [
+          {
+            // 19Js, un mentor solo puede estar en una generacion activa
+            name: String,
+            module: String,
+            isActive: Boolean
+          }
+        ]
+      }
 })
 
 const Mentor = mongoose.model("mentors", MentorSchema)

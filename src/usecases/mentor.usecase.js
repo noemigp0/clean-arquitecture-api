@@ -48,21 +48,25 @@ const changeGeneration = async (id, dataGeneration) => {
       generation.isActive = false
       return generation
     })
+
+    let newGeneration = 
+      {
+        name: dataGeneration.name,
+        module: dataGeneration.module,
+        isActive: true
+      }
+    
   
     // Paso 3
-    newGenerations.push({
-      name: dataGeneration.name,
-      module: dataGeneration.module,
-      isActive: true
-    })
+    newGenerations.push(newGeneration)
   
     // Paso 4 
     mentorFound.generations = newGenerations
-    console.log(newGenerations)
+  
     // Actualizar en la base de datos
     const updatedMentor = await Mentor.findByIdAndUpdate(id, mentorFound, { returnDocument: "after" })
-    
-      createGen(newGenerations)
+    //console.log(newGenerations)
+     await createGen(newGeneration)
      
     return updatedMentor
   }

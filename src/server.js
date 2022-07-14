@@ -1,8 +1,12 @@
-const express = require('express');
-const routerKoders = require('./routes/koder.route');
+const express = require('express')
+const routerKoders = require('./routes/koder.route')
 const routerMentors = require('./routes/mentor.route')
+const routerUsers = require('./routes/user.route')
+const routerAuth = require('./routes/auth.route')
 const app = express();
+const cors = requiere('cors')
 //Middleware, aqui van todos los middlewares
+app.use(cors())
 app.use(express.json());
 
 
@@ -13,10 +17,11 @@ app.use((request, response, next) => {
 })
 
 //Middleware de koders
-app.use('/koders',routerKoders);
-
+app.use('/koders',routerKoders)
 //Middleware de mentors
-app.use('/mentors',routerMentors);
+app.use('/mentors',routerMentors)
+app.use('/users', routerUsers)
+app.use('/login', routerAuth)
 
 
 
